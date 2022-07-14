@@ -1,0 +1,32 @@
+<nav>
+  <div class="logo">
+    <img src="../assets/favicon/favicon-32x32.png" alt="">
+     CastCursos
+  </div>
+  <input type="checkbox" id="click">
+  <label for="click" class="menu-btn">
+  <i class="fas fa-bars"></i>
+  </label>
+  <ul class="active">
+     <li><a href="#">Home</a></li>
+     <li><a href="" routerLink="cadastrar" >Cadastrar Curso</a></li>
+     <li><a href="" routerLink="consultar">Consultar Curso</a></li>
+  </ul>
+</nav>
+
+
+<!--Local para exibir o conteúdo das páginas-->
+
+<div class="container mt-3 " >
+  <div class="card d-flex text-bg-dark align-items-center" style="margin-left:17% ;">
+    <div class="card-body " >
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+
+
+</div>
+
+<footer class="fixar-rodape">
+  <p>&copy;2022 Copyright - Daniel Nunes</p>
+</footer>

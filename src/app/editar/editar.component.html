@@ -1,0 +1,82 @@
+<h1>Edição do Curso</h1>
+<h5>Utilize os campos para alterar os dados do Curso</h5>
+
+<form [formGroup]="formEdicao" (ngSubmit)=" onSubmit()">
+
+  <div *ngIf="mensagem" class="mb-3 alert alert-primary">
+    <strong>{{mensagem}}</strong>
+  </div>
+
+
+  <input type="hidden" formControlName="idCurso" />
+
+  <div class="row mb-3">
+    <div class="col-md-6">
+      <label for="floatingInput">Descricao</label>
+      <input type="text" class="form-control" id="floatingInput" formControlName="descricao"
+        placeholder="name@example.com">
+      <div class="text-danger" *ngIf="form.descricao.touched && form.descricao.invalid">
+        <span *ngIf="form.descricao.errors.required">
+          Informe a descrição do curso
+        </span>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <label for="floatingInput">Data de Início</label>
+      <input type="date" class="form-control" id="floatingInput" formControlName="dataInicio"
+        placeholder="name@example.com">
+      <div class="text-danger" *ngIf="form.dataInicio.touched && form.dataInicio.invalid">
+        <span *ngIf="form.dataInicio.errors.required">
+          Informe a data de início do curso
+        </span>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <label for="floatingInput">Data de Término</label>
+      <input type="date" class="form-control" id="floatingInput" formControlName="dataTermino"
+        placeholder="name@example.com">
+      <div class="text-danger" *ngIf="form.dataTermino.touched && form.dataTermino.invalid">
+        <span *ngIf="form.dataTermino.errors.required">
+          Informe a data de termino do curso
+        </span>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <label for="floatingInput">Quantidade de Alunos</label>
+      <input type="number" class="form-control" id="floatingInput" formControlName="alunos"
+        placeholder="name@example.com">
+      <div class="text-danger" *ngIf="form.alunos.touched && form.alunos.invalid">
+        <span *ngIf="form.alunos.errors.required">
+          Informe a quantidade de alunos do curso
+        </span>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <label for="categoria">Categoria</label>
+      <select class="form-control" formControlName="categoria" id="categoria">
+        <option *ngFor="let categoria of categorias" value="{{categoria.idCategoria}}">{{categoria.descricao}}
+        </option>
+      </select>
+
+      <div class="text-danger" *ngIf="form.categoria.touched && form.categoria.invalid">
+        <span *ngIf="form.categoria.errors.required">
+          Informe a categoria
+        </span>
+      </div>
+    </div>
+
+
+
+  </div>
+
+  <div class="row mb-3">
+    <div class="col-md-12">
+      <input type="submit" [disabled]="!formEdicao.valid" class="btn btn-success" value="Salvar Alterações" />
+    </div>
+  </div>
+
+</form>
